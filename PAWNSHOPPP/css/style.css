@@ -1,0 +1,265 @@
+
+:root {
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 56px;
+  --primary-color: #2E7D32; /* Green */
+  --hover-color: #1B5E20; /* Darker green */
+  --gradient-bg: linear-gradient(135deg, #2E7D32, #1B5E20);
+  --secondary-color: #0c8d1d59; /* Soft green */
+  --transition-speed: 0.4s;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --white-text: #ffffff;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at top left, #f6fff8, #e3fde9);
+  transition: background-color var(--transition-speed) ease-in-out;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+  width: var(--offcanvas-width) !important;
+  background: var(--gradient-bg) !important;
+  box-shadow: 5px 0 20px var(--shadow-color);
+  border-right: 3px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease-in-out;
+}
+
+/* Sidebar hover effect */
+.sidebar-nav:hover {
+  box-shadow: 10px 0 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Sidebar Links */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: var(--white-text);
+  padding: 14px 20px;
+  font-size: 16px;
+  position: relative;
+  transition: all var(--transition-speed);
+  border-radius: 8px;
+}
+
+/* Sidebar Link Hover & Active */
+.sidebar-link:hover, .sidebar-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+/* Sidebar Indicator Line */
+.sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background-color: var(--white-text);
+  transform: scaleY(0);
+  transition: transform var(--transition-speed) ease-in-out;
+}
+
+.sidebar-link:hover::before {
+  transform: scaleY(1);
+}
+
+/* Sidebar Collapse Icon Animation */
+.sidebar-link .right-icon {
+  transition: transform var(--transition-speed);
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+
+/* Sidebar Header */
+.offcanvas-header {
+  background: var(--gradient-bg);
+  font-size: 18px;
+  padding: 20px;
+  color: var(--white-text);
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+  text-transform: uppercase;
+  color: var(--white-text) !important;
+  letter-spacing: 1px;
+  transition: color var(--transition-speed);
+}
+
+.navbar-brand:hover {
+  color: var(--secondary-color) !important;
+}
+
+/* Profile Section */
+.profile-details li {
+  display: inline-block;
+  list-style: none;
+  font-size: 17px;
+  transition: transform var(--transition-speed);
+}
+
+.profile-details:hover {
+  transform: scale(1.05);
+}
+
+/* Breadcrumb */
+.breadcrumb-item {
+  font-size: 18px;
+  color: var(--primary-color);
+  transition: color var(--transition-speed);
+}
+
+.breadcrumb-item:hover {
+  color: var(--hover-color);
+  text-shadow: 0px 0px 12px rgba(46, 125, 50, 0.6);
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--gradient-bg);
+  color: var(--white-text);
+  border-radius: 8px 8px 0 0;
+}
+
+.nav-tabs .nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--hover-color);
+}
+
+/* Floating Cards */
+.card {
+  transition: all var(--transition-speed) ease-in-out;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px var(--shadow-color);
+}
+
+/* Card Gradient */
+.card-header {
+  background: var(--gradient-bg);
+  color: var(--white-text);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: var(--gradient-bg);
+  border: none;
+  transition: all var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Button Ripple Effect */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+  border-radius: 50%;
+}
+
+.btn-primary:active::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-primary:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+/* Table Styling */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+/* Table Header - Green Background */
+.table thead th {
+  background-color: var(--primary-color); /* Green */
+  color: var(--white-text); /* White text */
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--hover-color); /* Dark green for separation */
+}
+
+/* Alternating Column Colors */
+.table tbody tr:nth-child(even) td {
+  background-color: var(--secondary-color); /* Soft Green */
+}
+
+.table tbody tr:nth-child(odd) td {
+  background-color: #ffffff; /* White */
+}
+
+/* Table Hover Effect */
+.table tbody tr:hover td {
+  background: rgba(46, 125, 50, 0.2); /* Light green highlight */
+}
+
+/* Smooth Fade-in Effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+
+  .sidebar-nav {
+    transform: none !important;
+    visibility: visible !important;
+  }
+}
